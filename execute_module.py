@@ -24,8 +24,11 @@ if __name__ == "__main__":
     loan_roi = input('Please provide rate of interest')
     loan_tenure = input('Please provide loan tenure in months')
     loan_emi_date = input('Please provide emi date (1-22)')
-    #print(f'Loan Amount: {loan_principal_amount}\nLoan ROI: {loan_roi}\nLoan Tenure: {loan_tenure} Months\nEMI Date: {loan_emi_date}')
     loan_application_data = LoanApplicationDTO(loan_principal_amount, loan_tenure, loan_roi, loan_emi_date)
     input_validator = InputValidator()
-    print(input_validator.validateInput(loan_application_data))
+    if input_validator.validateInput(loan_application_data):
+        print('Input is correct')
+    else:
+        print('Data validation error')
+        
     
