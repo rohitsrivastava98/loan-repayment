@@ -13,10 +13,19 @@ Usage:
    python execute_module 
 """
 
+
+from com.loan.repayment.dto.loan_application_dto import LoanApplicationDTO
+from com.loan.validator.input_validator import InputValidator
+
+
 if __name__ == "__main__":
     print('Welcome in Loan EMI and Repayment Schedule Generator')
     loan_principal_amount = input('Please Provide Loan Amount')
     loan_roi = input('Please provide rate of interest')
     loan_tenure = input('Please provide loan tenure in months')
     loan_emi_date = input('Please provide emi date (1-22)')
-    print(f'Loan Amount: {loan_principal_amount}\nLoan ROI: {loan_roi}\nLoan Tenure: {loan_tenure} Months\nEMI Date: {loan_emi_date}')
+    #print(f'Loan Amount: {loan_principal_amount}\nLoan ROI: {loan_roi}\nLoan Tenure: {loan_tenure} Months\nEMI Date: {loan_emi_date}')
+    loan_application_data = LoanApplicationDTO(loan_principal_amount, loan_tenure, loan_roi, loan_emi_date)
+    input_validator = InputValidator()
+    print(input_validator.validateInput(loan_application_data))
+    
